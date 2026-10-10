@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Special Someone ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe0ec, #ffc1d6);
+            color: #633747;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #ff5c8a;
+            color: white;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #d98da555;
+        }
+
+        .heart {
+            font-size: 65px;
+            animation: beat 1s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        h2 {
+            color: #ff477e;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        button {
+            background: #ff477e;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 13px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #e8326b;
+        }
+
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff0f5;
+            border-radius: 15px;
+        }
+
+        .reasons {
+            text-align: left;
+            display: inline-block;
+        }
+
+        footer {
+            padding: 20px;
+            color: #87435a;
+        }
+
+        .floating-heart {
+            position: fixed;
+            bottom: -30px;
+            animation: floatUp 5s linear forwards;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>For My Special Someone ❤️</h1>
+        <p>A little website made just for you.</p>
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="heart">❤️</div>
+
+            <!-- Change the name here -->
+            <h2>Hey, My Favorite Person!</h2>
+
+            <p>
+                I made this little website to remind you
+                how special you are to me.
+            </p>
+
+            <p>
+                You make ordinary days feel special.
+                Thank you for being part of my life.
+                I'm really happy to have you. 💗
+            </p>
+
+            <button onclick="showSurprise()">
+                Click for a Surprise 💌
+            </button>
+
+            <div id="surprise">
+                <h2>One Little Reminder 💖</h2>
+
+                <p>
+                    No matter how busy life gets,
+                    I hope you always remember that
+                    you are appreciated, valued,
+                    and cared for.
+                </p>
+
+                <p>
+                    If I could give you one thing,
+                    it would be the chance to see
+                    yourself through my eyes. 🌷
+                </p>
+
+                <h2>I hope this makes you smile! ❤️</h2>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h2>Little Things I Appreciate About You 🌸</h2>
+
+            <div class="reasons">
+                <p>💗 Your smile</p>
+                <p>💗 The way you make me laugh</p>
+                <p>💗 Your kindness</p>
+                <p>💗 The little moments we share</p>
+                <p>💗 Simply being yourself</p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 20px;">
+            <h2>A Message Just for You 💌</h2>
+
+            <p>
+                If today feels difficult, remember to be
+                kind to yourself. You don't have to be
+                perfect to be someone special.
+            </p>
+
+            <p>Sending you a little happiness today! 🫶</p>
+        </div>
+
+    </div>
+
+    <footer>
+        Made with love and a little bit of HTML ❤️
+    </footer>
+
+    <script>
+        function showSurprise() {
+            const message = document.getElementById("surprise");
+
+            if (message.style.display === "block") {
+                message.style.display = "none";
+            } else {
+                message.style.display = "block";
+                createHearts();
+            }
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement("div");
+
+                heart.className = "floating-heart";
+                heart.textContent = ["❤️", "💗", "💕", "💖"][
+                    Math.floor(Math.random() * 4)
+                ];
+
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+                heart.style.animationDuration =
+                    (3 + Math.random() * 3) + "s";
+
+                document.body.appendChild(heart);
+
+                heart.addEventListener("animationend", () => {
+                    heart.remove();
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
+  
